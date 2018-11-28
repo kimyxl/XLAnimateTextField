@@ -25,8 +25,8 @@ import SnapKit
 
 @objc protocol XLAnimateTextFieldDelegate:class {
     @objc optional func XLAnimateTextFieldDidBeginEditing(_ textfield:XLAnimateTextField)
-    @objc optional func XLAmateTextFieldDidEndEditing(_ textfield:XLAnimateTextField)
-    @objc optional func XLAmateTextFieldValueChanged(_ textfield: XLAnimateTextField)
+    @objc optional func XLAnimateTextFieldDidEndEditing(_ textfield:XLAnimateTextField)
+    @objc optional func XLAnimateTextFieldValueChanged(_ textfield: XLAnimateTextField)
 }
 
 class XLAnimateTextField: UIView, UITextFieldDelegate {
