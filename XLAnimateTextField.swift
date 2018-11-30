@@ -30,7 +30,14 @@ import SnapKit
 }
 
 class XLAnimateTextField: UIView, UITextFieldDelegate {
-
+    
+    enum LabelStatusEnum {
+        case top
+        case movingUp
+        case bottom
+        case movingDown
+    }
+    
     var heightDefault = CGFloat.init(55) //default height
     var animationTimeToTop = 0.1
     var animationTimeToEnd = 0.3
@@ -71,7 +78,7 @@ class XLAnimateTextField: UIView, UITextFieldDelegate {
     private var rightView:UIView? = nil
     
     //judge whether placeholderLabel is above.
-    var labelOnTop = false
+    var labelAltitude:LabelStatusEnum = .bottom
     private var tf_isFirstResponder = false
     
     private var placeHolderText = ""
@@ -87,6 +94,13 @@ class XLAnimateTextField: UIView, UITextFieldDelegate {
             return CGFloat.init(phFont.pointSize/phTopFont.pointSize)
         }
     }
+    
+    /*transform*/
+    private var topTransform:CGAffineTransform?
+    private var bottomTransform:CGAffineTransform?
+    
+    typealias ToDo = ()->Void
+    private var todoAfterLayout = [ToDo]()
     
     //MARK:init --------------------------------------
     override init(frame: CGRect) {
@@ -192,49 +206,79 @@ class XLAnimateTextField: UIView, UITextFieldDelegate {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        if self.labelOnTop {
-            self.goToBottom()
-            self.goToTop()
+        if self.labelAltitude == .top {
+            self.goToBottom(withAnimation: false, completion: nil)
+            self.goToTop(withAnimation: false, completion: nil)
+        }
+        if self.labelAltitude == .top || self.labelAltitude == .bottom {
+            self.bottomTransform = self.placeHolderLabel.transform
+            self.topTransform = self.bottomTransform!.scaledBy(x: self.scaleShrink, y: self.scaleShrink)
+        }
+        if self.todoAfterLayout.isEmpty == false {
+            for d in self.todoAfterLayout {
+                d()
+            }
+            self.todoAfterLayout.removeAll()
         }
     }
     
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         guard keyPath != nil,
-        keyPath! == "text",
-        let _ = object as? UITextField else {
-            return
+            keyPath! == "text",
+            let _ = object as? UITextField else {
+                return
         }
-        let t =  self.textfield.text
+        let t = self.textfield.text
+        
         if t == nil || t! == "" {
-            UIView.animate(withDuration: animationTimeToEnd, animations: {
-                self.goToBottom()
-            }) { (bool) in
-                
+            let action = {
+                self.goToBottom(withAnimation: true, completion: nil)
             }
+            if self.topTransform == nil {
+                todoAfterLayout.append {
+                    action()
+                }
+            } else {
+                action()
+            }
+            
         } else {
-            self.goToTop()
+            let action = {
+                self.goToTop(withAnimation: true, completion: nil)
+            }
+            if self.bottomTransform == nil {
+                todoAfterLayout.append {
+                    action()
+                }
+            } else {
+                action()
+            }
+            
         }
     }
     
     //MARK:textfield delegate -----------------------------
     @objc func textFieldValueChanged(_ textField: UITextField){
-        if self.delegate != nil  && self.delegate!.responds(to: #selector(XLAnimateTextFieldDelegate.XLAmateTextFieldValueChanged(_:))) {
-            self.delegate!.XLAmateTextFieldValueChanged!(self)
+        if self.delegate != nil  && self.delegate!.responds(to: #selector(XLAnimateTextFieldDelegate.XLAnimateTextFieldValueChanged(_:))) {
+            self.delegate!.XLAnimateTextFieldValueChanged!(self)
         }
     }
     
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         self.placeHolderLabel.textColor = themeColor
         self.bottomLine.backgroundColor = themeColor
-        if self.tf_isFirstResponder == false && self.labelOnTop == false {
-            UIView.animate(withDuration: self.animationTimeToTop, animations: {
-                self.goToTop()
-            }) { (bool) in
+        if self.tf_isFirstResponder == false && self.labelAltitude == .bottom {
+            //call when user clicks
+            self.goToTop(withAnimation: true) {
+                self.textfield.becomeFirstResponder()
                 self.tf_isFirstResponder = true
-                textField.becomeFirstResponder()
             }
             return false
         } else {
+            //besides 'if' condition above, also call when use self.textfield.becomefirstResponder
+            self.goToTop(withAnimation: true) {
+                self.tf_isFirstResponder = true
+            }
             return true
         }
     }
@@ -246,47 +290,89 @@ class XLAnimateTextField: UIView, UITextFieldDelegate {
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        if (self.delegate != nil) && self.delegate!.responds(to: #selector(XLAnimateTextFieldDelegate.XLAmateTextFieldDidEndEditing(_:))) {
-            self.delegate!.XLAmateTextFieldDidEndEditing!(self)
+        if (self.delegate != nil) && self.delegate!.responds(to: #selector(XLAnimateTextFieldDelegate.XLAnimateTextFieldDidEndEditing(_:))) {
+            self.delegate!.XLAnimateTextFieldDidEndEditing!(self)
         }
         self.bottomLine.backgroundColor = lineColor
         self.placeHolderLabel.textColor = greyColor
         self.tf_isFirstResponder = false
-        
+        self.textfield.resignFirstResponder()
+        if self.textfield.text == nil || self.textfield.text! == "" {
+            self.goToBottom(withAnimation: true, completion: nil)
+        }
     }
     
     func manually_toTop() {
-        self.goToTop()
+        self.goToTop(withAnimation: false, completion: nil)
     }
     
     func manually_toBottom() {
-        self.goToBottom()
+        self.goToBottom(withAnimation: false, completion: nil)
     }
     
-    private func goToTop() {
-        if self.labelOnTop == true {
+    private func goToTop(withAnimation:Bool, completion:(()->Void)?) {
+        if self.labelAltitude == .top || self.labelAltitude == .movingUp || self.bottomTransform == nil {
             return
         }
-        
-        self.placeHolderLabel.transform = self.placeHolderLabel.transform.scaledBy(x: self.scaleShrink, y: self.scaleShrink)
-        self.placeHolderLabel.frame.origin.x = 7
-        self.placeHolderLabel.frame.origin.y = 3
-        self.labelOnTop = true
-    }
-    
-    private func goToBottom() {
-        if self.labelOnTop == false {
-            return
+        func transform() {
+            self.placeHolderLabel.transform = self.bottomTransform!.scaledBy(x: self.scaleShrink, y: self.scaleShrink)
+            self.placeHolderLabel.frame.origin.x = 7
+            self.placeHolderLabel.frame.origin.y = 3
         }
-        
-        self.placeHolderLabel.transform = self.placeHolderLabel.transform.scaledBy(x: self.scaleMagnify, y: self.scaleMagnify)
-        if self.leftView != nil {
-            self.placeHolderLabel.frame.origin.x = 5 + self.leftView!.frame.width
+        if withAnimation && self.labelAltitude == .bottom {
+            self.labelAltitude = .movingUp
+            UIView.animate(withDuration: animationTimeToTop, animations: {
+                transform()
+            }) { (bool) in
+                if let completion = completion {
+                    self.labelAltitude = .top
+                    completion()
+                }
+            }
         } else {
-            self.placeHolderLabel.frame.origin.x = 5
+            self.labelAltitude = .top
+            if let completion = completion {
+                completion()
+            }
+            transform()
         }
-        self.placeHolderLabel.frame.origin.y = self.frame.height-4-self.getTextFrame(text: self.placeHolderText, font: self.phFont).height
-        self.labelOnTop = false
+    }
+    
+    private func goToBottom(withAnimation:Bool, completion:(()->Void)?) {
+        if self.labelAltitude == .bottom || self.labelAltitude == .movingDown || self.topTransform == nil {
+            return
+        }
+        self.textfield.resignFirstResponder()
+        self.placeHolderLabel.textColor = greyColor
+        
+        func transform() {
+            self.placeHolderLabel.transform = self.topTransform!.scaledBy(x: self.scaleMagnify, y: self.scaleMagnify)
+            if self.leftView != nil {
+                self.placeHolderLabel.frame.origin.x = 5 + self.leftView!.frame.width
+            } else {
+                self.placeHolderLabel.frame.origin.x = 5
+            }
+            self.placeHolderLabel.frame.origin.y = self.frame.height-4-self.getTextFrame(text: self.placeHolderText, font: self.phFont).height
+        }
+        
+        if withAnimation && self.labelAltitude == .top {
+            self.labelAltitude = .movingDown
+            UIView.animate(withDuration: animationTimeToEnd, animations: {
+                transform()
+            }) { (bool) in
+                self.labelAltitude = .bottom
+                if let completion = completion {
+                    completion()
+                }
+            }
+        } else {
+            self.labelAltitude = .bottom
+            if let completion = completion {
+                completion()
+            }
+            transform()
+        }
+        
     }
     
     private func getTextFrame(text:String, font:UIFont) -> CGRect {
@@ -297,8 +383,3 @@ class XLAnimateTextField: UIView, UITextFieldDelegate {
         return testLabel.frame
     }
 }
-
-
-
-
-
