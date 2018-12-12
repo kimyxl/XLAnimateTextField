@@ -37,13 +37,13 @@ class XLAnimateTextField: UIView, UITextFieldDelegate {
         case bottom
         case movingDown
     }
-    
+
     var heightDefault = CGFloat.init(55) //default height
     var animationTimeToTop = 0.1
     var animationTimeToEnd = 0.3
     
     //some default colors
-    var themeColor = UIColor (red: 11.0/255.0, green: 157.0/255.0, blue: 120.0/255.0, alpha: 1.0)
+    var themeColor = UIColor (red: 237.0/255.0, green: 134.0/255.0, blue: 73.0/255.0, alpha: 0.8)
     private let greyColor = UIColor (red: 153.0/255.0, green: 153.0/255.0, blue: 153.0/255.0, alpha: 1.0)
     private let lineColor = UIColor (red: 214.0/255.0, green: 214.0/255.0, blue: 214.0/255.0, alpha: 1.0)
     
@@ -210,10 +210,11 @@ class XLAnimateTextField: UIView, UITextFieldDelegate {
             self.goToBottom(withAnimation: false, completion: nil)
             self.goToTop(withAnimation: false, completion: nil)
         }
-        if self.labelAltitude == .top || self.labelAltitude == .bottom {
+        if self.labelAltitude == .bottom {
             self.bottomTransform = self.placeHolderLabel.transform
             self.topTransform = self.bottomTransform!.scaledBy(x: self.scaleShrink, y: self.scaleShrink)
         }
+        
         if self.todoAfterLayout.isEmpty == false {
             for d in self.todoAfterLayout {
                 d()
@@ -221,37 +222,31 @@ class XLAnimateTextField: UIView, UITextFieldDelegate {
             self.todoAfterLayout.removeAll()
         }
     }
-    
+   
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         guard keyPath != nil,
-            keyPath! == "text",
-            let _ = object as? UITextField else {
-                return
+        keyPath! == "text",
+        let _ = object as? UITextField else {
+            return
         }
         let t = self.textfield.text
         
         if t == nil || t! == "" {
-            let action = {
-                self.goToBottom(withAnimation: true, completion: nil)
-            }
             if self.topTransform == nil {
                 todoAfterLayout.append {
-                    action()
+                    self.goToBottom(withAnimation: false, completion: nil)
                 }
             } else {
-                action()
+                self.goToBottom(withAnimation: true, completion: nil)
             }
             
         } else {
-            let action = {
-                self.goToTop(withAnimation: true, completion: nil)
-            }
             if self.bottomTransform == nil {
                 todoAfterLayout.append {
-                    action()
+                    self.goToTop(withAnimation: false, completion: nil)
                 }
             } else {
-                action()
+                self.goToTop(withAnimation: true, completion: nil)
             }
             
         }
@@ -324,17 +319,19 @@ class XLAnimateTextField: UIView, UITextFieldDelegate {
             UIView.animate(withDuration: animationTimeToTop, animations: {
                 transform()
             }) { (bool) in
-                if let completion = completion {
+                if self.labelAltitude == .movingUp {
                     self.labelAltitude = .top
+                }
+                if let completion = completion {
                     completion()
                 }
             }
         } else {
             self.labelAltitude = .top
+            transform()
             if let completion = completion {
                 completion()
             }
-            transform()
         }
     }
     
@@ -360,17 +357,19 @@ class XLAnimateTextField: UIView, UITextFieldDelegate {
             UIView.animate(withDuration: animationTimeToEnd, animations: {
                 transform()
             }) { (bool) in
-                self.labelAltitude = .bottom
+                if self.labelAltitude == .movingDown {
+                    self.labelAltitude = .bottom
+                }
                 if let completion = completion {
                     completion()
                 }
             }
         } else {
             self.labelAltitude = .bottom
+            transform()
             if let completion = completion {
                 completion()
             }
-            transform()
         }
         
     }
@@ -383,3 +382,8 @@ class XLAnimateTextField: UIView, UITextFieldDelegate {
         return testLabel.frame
     }
 }
+
+
+
+
+
