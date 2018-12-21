@@ -20,6 +20,7 @@ import SnapKit
     make.height.equalTo(tf.heightDefault)
     make.top.left.right.equalToSuperview()
  }
+ 注：外部应避免调用layoutIfNeeded
  */
 
 
@@ -206,13 +207,19 @@ class XLAnimateTextField: UIView, UITextFieldDelegate {
     
     override func layoutSubviews() {
         super.layoutSubviews()
+        
+        if self.labelAltitude == .bottom {
+            self.bottomTransform = self.placeHolderLabel.transform
+            self.topTransform = self.bottomTransform!.scaledBy(x: self.scaleShrink, y: self.scaleShrink)
+        }
+        
         if self.labelAltitude == .top {
             self.goToBottom(withAnimation: false, completion: nil)
             self.goToTop(withAnimation: false, completion: nil)
         }
         if self.labelAltitude == .bottom {
-            self.bottomTransform = self.placeHolderLabel.transform
-            self.topTransform = self.bottomTransform!.scaledBy(x: self.scaleShrink, y: self.scaleShrink)
+            self.goToTop(withAnimation: false, completion: nil)
+            self.goToBottom(withAnimation: false, completion: nil)
         }
         
         if self.todoAfterLayout.isEmpty == false {
