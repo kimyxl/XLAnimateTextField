@@ -2,7 +2,7 @@
 
 ###### Usage
 
-(```)
+```
 用法:
  let tf = XLAnimateTextField.init(placeHolderText: "123")
  tf.clearMode = .whileEditing
@@ -16,6 +16,6 @@
  }
  注：外部应避免调用layoutIfNeeded
 
-(```)
+```
 
 ![image](https://github.com/kimyxl/XLAnimateTextField/blob/master/images/XLAnimateTextFieldGIF.gif)
