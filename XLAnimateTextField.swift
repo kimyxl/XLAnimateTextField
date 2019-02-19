@@ -28,6 +28,7 @@ import SnapKit
     @objc optional func XLAnimateTextFieldDidBeginEditing(_ textfield:XLAnimateTextField)
     @objc optional func XLAnimateTextFieldDidEndEditing(_ textfield:XLAnimateTextField)
     @objc optional func XLAnimateTextFieldValueChanged(_ textfield: XLAnimateTextField)
+    @objc optional func XLAnimateTextFieldShouldReturn(_ textfield: XLAnimateTextField) -> Bool
 }
 
 class XLAnimateTextField: UIView, UITextFieldDelegate {
@@ -260,6 +261,12 @@ class XLAnimateTextField: UIView, UITextFieldDelegate {
     }
     
     //MARK:textfield delegate -----------------------------
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if self.delegate != nil  && self.delegate!.responds(to: #selector(XLAnimateTextFieldDelegate.XLAnimateTextFieldShouldReturn(_:))) {
+            return self.delegate!.XLAnimateTextFieldShouldReturn!(self)
+        }
+        return true
+    }
     @objc func textFieldValueChanged(_ textField: UITextField){
         if self.delegate != nil  && self.delegate!.responds(to: #selector(XLAnimateTextFieldDelegate.XLAnimateTextFieldValueChanged(_:))) {
             self.delegate!.XLAnimateTextFieldValueChanged!(self)
