@@ -1,0 +1,418 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		204C25AB34417BE04B6EC017 /* Pods_default_XLAnimateTextFieldDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5A8A8CB1DF0506E18D554C5 /* Pods_default_XLAnimateTextFieldDemo.framework */; };
+		AB60D6FF221BE7040046C00E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB60D6FE221BE7040046C00E /* AppDelegate.swift */; };
+		AB60D701221BE7040046C00E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB60D700221BE7040046C00E /* ViewController.swift */; };
+		AB60D704221BE7040046C00E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB60D702221BE7040046C00E /* Main.storyboard */; };
+		AB60D706221BE7040046C00E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB60D705221BE7040046C00E /* Assets.xcassets */; };
+		AB60D709221BE7040046C00E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB60D707221BE7040046C00E /* LaunchScreen.storyboard */; };
+		AB60D713221BE75E0046C00E /* XLAnimateTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB60D712221BE75E0046C00E /* XLAnimateTextField.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		771073D94F3EA96F2ABE20BB /* Pods-default-XLAnimateTextFieldDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-default-XLAnimateTextFieldDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-default-XLAnimateTextFieldDemo/Pods-default-XLAnimateTextFieldDemo.release.xcconfig"; sourceTree = "<group>"; };
+		A003B7525242B4B58B78DD39 /* Pods-default-XLAnimateTextFieldDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-default-XLAnimateTextFieldDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-default-XLAnimateTextFieldDemo/Pods-default-XLAnimateTextFieldDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		AB60D6FB221BE7040046C00E /* XLAnimateTextFieldDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XLAnimateTextFieldDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB60D6FE221BE7040046C00E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		AB60D700221BE7040046C00E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		AB60D703221BE7040046C00E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		AB60D705221BE7040046C00E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AB60D708221BE7040046C00E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		AB60D70A221BE7040046C00E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AB60D712221BE75E0046C00E /* XLAnimateTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XLAnimateTextField.swift; sourceTree = "<group>"; };
+		E5A8A8CB1DF0506E18D554C5 /* Pods_default_XLAnimateTextFieldDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_default_XLAnimateTextFieldDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AB60D6F8221BE7040046C00E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				204C25AB34417BE04B6EC017 /* Pods_default_XLAnimateTextFieldDemo.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AB60D6F2221BE7040046C00E = {
+			isa = PBXGroup;
+			children = (
+				AB60D6FD221BE7040046C00E /* XLAnimateTextFieldDemo */,
+				AB60D6FC221BE7040046C00E /* Products */,
+				E68F42D9CA28ED484931E78B /* Pods */,
+				FD7D1E4B57007FCC1F566627 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		AB60D6FC221BE7040046C00E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AB60D6FB221BE7040046C00E /* XLAnimateTextFieldDemo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AB60D6FD221BE7040046C00E /* XLAnimateTextFieldDemo */ = {
+			isa = PBXGroup;
+			children = (
+				AB60D6FE221BE7040046C00E /* AppDelegate.swift */,
+				AB60D712221BE75E0046C00E /* XLAnimateTextField.swift */,
+				AB60D700221BE7040046C00E /* ViewController.swift */,
+				AB60D702221BE7040046C00E /* Main.storyboard */,
+				AB60D705221BE7040046C00E /* Assets.xcassets */,
+				AB60D707221BE7040046C00E /* LaunchScreen.storyboard */,
+				AB60D70A221BE7040046C00E /* Info.plist */,
+			);
+			path = XLAnimateTextFieldDemo;
+			sourceTree = "<group>";
+		};
+		E68F42D9CA28ED484931E78B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A003B7525242B4B58B78DD39 /* Pods-default-XLAnimateTextFieldDemo.debug.xcconfig */,
+				771073D94F3EA96F2ABE20BB /* Pods-default-XLAnimateTextFieldDemo.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		FD7D1E4B57007FCC1F566627 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E5A8A8CB1DF0506E18D554C5 /* Pods_default_XLAnimateTextFieldDemo.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AB60D6FA221BE7040046C00E /* XLAnimateTextFieldDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AB60D70D221BE7040046C00E /* Build configuration list for PBXNativeTarget "XLAnimateTextFieldDemo" */;
+			buildPhases = (
+				7249B4BC9CA3E470F3A0F5CC /* [CP] Check Pods Manifest.lock */,
+				AB60D6F7221BE7040046C00E /* Sources */,
+				AB60D6F8221BE7040046C00E /* Frameworks */,
+				AB60D6F9221BE7040046C00E /* Resources */,
+				9885D349A1F43F47611C548D /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = XLAnimateTextFieldDemo;
+			productName = XLAnimateTextFieldDemo;
+			productReference = AB60D6FB221BE7040046C00E /* XLAnimateTextFieldDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AB60D6F3221BE7040046C00E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1010;
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = xiaolei;
+				TargetAttributes = {
+					AB60D6FA221BE7040046C00E = {
+						CreatedOnToolsVersion = 10.1;
+					};
+				};
+			};
+			buildConfigurationList = AB60D6F6221BE7040046C00E /* Build configuration list for PBXProject "XLAnimateTextFieldDemo" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = AB60D6F2221BE7040046C00E;
+			productRefGroup = AB60D6FC221BE7040046C00E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AB60D6FA221BE7040046C00E /* XLAnimateTextFieldDemo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AB60D6F9221BE7040046C00E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AB60D709221BE7040046C00E /* LaunchScreen.storyboard in Resources */,
+				AB60D706221BE7040046C00E /* Assets.xcassets in Resources */,
+				AB60D704221BE7040046C00E /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		7249B4BC9CA3E470F3A0F5CC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-default-XLAnimateTextFieldDemo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9885D349A1F43F47611C548D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-default-XLAnimateTextFieldDemo/Pods-default-XLAnimateTextFieldDemo-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-default-XLAnimateTextFieldDemo/Pods-default-XLAnimateTextFieldDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AB60D6F7221BE7040046C00E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AB60D701221BE7040046C00E /* ViewController.swift in Sources */,
+				AB60D6FF221BE7040046C00E /* AppDelegate.swift in Sources */,
+				AB60D713221BE75E0046C00E /* XLAnimateTextField.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		AB60D702221BE7040046C00E /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AB60D703221BE7040046C00E /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		AB60D707221BE7040046C00E /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AB60D708221BE7040046C00E /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		AB60D70B221BE7040046C00E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		AB60D70C221BE7040046C00E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		AB60D70E221BE7040046C00E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A003B7525242B4B58B78DD39 /* Pods-default-XLAnimateTextFieldDemo.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = XLAnimateTextFieldDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = xxx.XLAnimateTextFieldDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		AB60D70F221BE7040046C00E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 771073D94F3EA96F2ABE20BB /* Pods-default-XLAnimateTextFieldDemo.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = XLAnimateTextFieldDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = xxx.XLAnimateTextFieldDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AB60D6F6221BE7040046C00E /* Build configuration list for PBXProject "XLAnimateTextFieldDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AB60D70B221BE7040046C00E /* Debug */,
+				AB60D70C221BE7040046C00E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AB60D70D221BE7040046C00E /* Build configuration list for PBXNativeTarget "XLAnimateTextFieldDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AB60D70E221BE7040046C00E /* Debug */,
+				AB60D70F221BE7040046C00E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AB60D6F3221BE7040046C00E /* Project object */;
+}
